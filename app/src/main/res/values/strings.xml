@@ -2,7 +2,9 @@
     <string name="app_name" translatable="false">Yamba</string>
     <string name="status_update">What\'s going on?</string>
     <string name="button_tweet" translatable="false">Tweet</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="username_summary">Your username:</string>
+    <string name="password_summary">Your password:</string>
+    <string name="action_settings">Settings</string>
 </resources>
