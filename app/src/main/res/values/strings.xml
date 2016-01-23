@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name" translatable="false">Yamba</string>
+    <string name="status_update">What\'s going on?</string>
+    <string name="button_tweet" translatable="false">Tweet</string>
+</resources>
