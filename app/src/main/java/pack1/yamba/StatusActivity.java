@@ -1,9 +1,9 @@
 package pack1.yamba;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-public class StatusActivity extends AppCompatActivity {
+public class StatusActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +14,5 @@ public class StatusActivity extends AppCompatActivity {
             getFragmentManager().beginTransaction().add(
                     android.R.id.content, fragment, fragment.getClass().getSimpleName()).commit();
         }
-        setContentView(R.layout.new_activity_status);
     }
 }

@@ -2,25 +2,32 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pack1.yamba" >
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    //Makes app ask user for permission to use internet upon installation
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:debuggable="true"
         android:allowBackup="true"
+        android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".StatusActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        //Each activity block *registers* the activity
+        <activity
+            android:name=".StatusActivity" >
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/action_settings" />
+            android:label="@string/action_settings" >
+        </activity>
+        <activity
+            android:name=".MainActivity" >
+            //Designates homepage
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

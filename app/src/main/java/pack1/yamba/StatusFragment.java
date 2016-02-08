@@ -1,10 +1,14 @@
 package pack1.yamba;
 
 import android.app.Fragment;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,6 +37,7 @@ public class StatusFragment extends Fragment implements View.OnClickListener {
     private EditText editStatus;
     private TextView textCounter;
     private int defaultTextColor;
+    private SharedPreferences prefs;
 
     private static final String TAG = "StatusActivity";
 
@@ -89,9 +94,21 @@ public class StatusFragment extends Fragment implements View.OnClickListener {
 
         @Override
         protected String doInBackground(String... params) {
-            YambaClient yambaCloud = new YambaClient("student", "password");
             try {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                        getActivity());
+                String username = prefs.getString("username", "");
+                String password = prefs.getString("password","");
+
+                if( TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
+                    getActivity().startActivity(new Intent(getActivity(), SettingsActivity.class));
+                    return "Please update your username and password.";
+                }
+
+                YambaClient yambaCloud = new YambaClient(username, password);
+
                 yambaCloud.postStatus(params[0]);
+
                 return "Successfully posted";
             } catch (YambaClientException e) {
                 e.printStackTrace();
@@ -106,6 +123,13 @@ public class StatusFragment extends Fragment implements View.OnClickListener {
             Toast.makeText(StatusFragment.this.getActivity(), result, Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    @Override
+    protected String doInBackground(String... params) {
+        try {
+
+        }
     }
 
 }
