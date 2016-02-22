@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pack1.yamba" >
-
     //Makes app ask user for permission to use internet upon installation
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,21 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         //Each activity block *registers* the activity
-        <activity
-            android:name=".StatusActivity" >
+        <activity android:name=".StatusActivity" >
         </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/action_settings" >
         </activity>
-        <activity
-            android:name=".MainActivity" >
+        <activity android:name=".MainActivity" >
             //Designates homepage
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".RefreshService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

@@ -125,11 +125,4 @@ public class StatusFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    @Override
-    protected String doInBackground(String... params) {
-        try {
-
-        }
-    }
-
 }
