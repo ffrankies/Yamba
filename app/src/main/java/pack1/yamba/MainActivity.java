@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_tweet:
                 startActivity(new Intent(this, StatusActivity.class));
                 return true;
+            case R.id.action_refresh:
+                startService(new Intent(this, RefreshService.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
